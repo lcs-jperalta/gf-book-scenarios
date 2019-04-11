@@ -9,10 +9,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 public class Piano extends World
 {
     /**
+     * Instance variables
+     * (can be used anywhere in the class)
+     */
+    int frames;
+    /**
      * Make the piano.
      */
     public Piano() 
     {
         super(800, 340, 1);
+        // initialize instance variable
+        frames = 0;
+    }
+    /**
+     * act (gets called repeatedly)
+     */
+    public void act()
+    {
+        // Track frames
+        frames +=1;
+        
+        // Show frames
+        showText("" + frames, 100, 100);
     }
 }
