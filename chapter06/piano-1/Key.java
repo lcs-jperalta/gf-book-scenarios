@@ -27,5 +27,13 @@ public class Key extends Actor
         }
         
     }
+    
+    /**
+     * Play the note of this key.
+     */
+    public void play()
+    {
+        Greenfoot.playSound("3a.wav");
+    }
 }
 
