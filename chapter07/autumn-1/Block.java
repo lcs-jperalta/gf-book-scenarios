@@ -18,6 +18,31 @@ public class Block extends Actor
         move();
         checkEdge();
         checkMouseClick();
+        checkForLeafCollision();
+    }
+    
+    /**
+     * Remove a Leaf if the block collides with it.
+     */
+    private void checkForLeafCollision()
+    {
+        // Get an object reference to a single Leaf from any Leaf object we
+        // are currently intersecting
+        
+        // Note: By placing a type in brackets before the call for the
+        //  GetOneIntersectingObject, we cast (or force_ the type to change
+        // from Actor to Leaf
+        // We can do this because Leaf is a subclass of Actor
+        Leaf aLeaf = (Leaf) getOneIntersectingObject(Leaf.class);
+        
+        // Check that the aLeaf object actually has a reference to an object
+        // If it is null, it means there was no Leaf intersecting the block.
+        if (aLeaf != null)
+        {
+            // aLeaf is not null, so we can remove it
+            World myWorld = getWorld();
+            myWorld.removeObject(aLeaf);
+        }
     }
     
     /**
@@ -56,5 +81,6 @@ public class Block extends Actor
             // do this when the mouse is clicked. currently: nothing.
         }
     }
+    
     
 }
