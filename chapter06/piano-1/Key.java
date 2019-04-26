@@ -12,10 +12,11 @@ public class Key extends Actor
     //Will contain the key and sound file that this instance of the class will play
     private String key;
     private String sound;
+    private boolean isKeyWhite;
     /**
      * Create a new key.
      */
-    public Key(String keyName, String soundFile)
+    public Key(String keyName, String soundFile, boolean keyWhite)
     {
         //No key has been pressed
         keyAlreadyDown = false;
@@ -23,6 +24,7 @@ public class Key extends Actor
         // Set the instance variables with the paramaters
         key = keyName;
         sound = soundFile;
+        isKeyWhite = keyWhite;
     }
 
     /**
@@ -36,7 +38,7 @@ public class Key extends Actor
         if ( Greenfoot.isKeyDown(key) && !keyAlreadyDown )
         {
             //Key is down
-            setImage("white-key-down.png");
+            keyDown();
             play();
             keyAlreadyDown = true;
         }    
@@ -47,7 +49,7 @@ public class Key extends Actor
         if ( (keyAlreadyDown == true) && !Greenfoot.isKeyDown(key) )
         {
             //Key is up
-            setImage("white-key.png");
+            keyUp();dddddd
             keyAlreadyDown = false;
         }
 
@@ -59,6 +61,36 @@ public class Key extends Actor
     public void play()
     {
         Greenfoot.playSound(sound + ".wav");
+    }
+
+    /**
+     * Make the piano key appear to be down.
+     */
+    private void keyDown()
+    {
+        if (isKeyWhite == true)
+        {
+            setImage("white-key-down.png");
+        }
+        else
+        {
+            setImage("black-key-down.png");
+        }
+    }
+
+    /**
+     * Make the piano key appear to be up.
+     */
+    private void keyUp()
+    {
+        if (isKeyWhite == true)
+        {
+            setImage("white-key.png");
+        }
+        else
+        {
+            setImage("black-key.png");
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Key
-comment1.params=keyName\ soundFile
-comment1.target=Key(java.lang.String,\ java.lang.String)
+comment1.params=keyName\ soundFile\ keyWhite
+comment1.target=Key(java.lang.String,\ java.lang.String,\ boolean)
 comment1.text=\n\ Create\ a\ new\ key.\n
 comment2.params=
 comment2.target=void\ act()
@@ -9,4 +9,10 @@ comment2.text=\n\ Do\ the\ action\ for\ this\ key.\n
 comment3.params=
 comment3.target=void\ play()
 comment3.text=\n\ Play\ the\ note\ of\ this\ key.\n
-numComments=4
+comment4.params=
+comment4.target=void\ keyDown()
+comment4.text=\n\ Make\ the\ piano\ key\ appear\ to\ be\ down.\n
+comment5.params=
+comment5.target=void\ keyUp()
+comment5.text=\n\ Make\ the\ piano\ key\ appear\ to\ be\ up.\n
+numComments=6

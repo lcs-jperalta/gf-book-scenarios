@@ -31,6 +31,13 @@ public class Piano extends World
     String[] whiteNotes = {"3c", "3d", "3e", "3f", "3g", "3a", "3b", "4c", 
             "4d", "4e", "4f", "4g" 
         };
+
+    String[] blackKeys = {"w", "e", "", "t", "y", "u", "", "o", "p", "", "]"
+
+        };
+    String[] blackNotes = {"3c#", "3d#", "", "3f#", "3g#", "3a#", "", 
+            "4c#", "4d#", "", "4f#"
+        };
     /**
      * Make the piano.
      */
@@ -49,11 +56,19 @@ public class Piano extends World
         // Say hello to a different person each second
         // Array
         int position = frames / 60;
-        if ( (frames % 60 == 0) && (position < 16) )
+
+        //     every second           when the position is less than the amount of items in the array
+        if ( (frames % 60 == 0) && (position < whiteKeys.length) )
         {
             // Only show a message when we are in the bounds of the array
             showText("Array index is: " + position, 600, 250);
 
+            // Create an object to add to the world
+            Key aKey = new Key(whiteKeys[position], whiteNotes[position]);
+            Key bKey = new Key(blackKeys[position], blackNotes[position]);
+            // NAdd the object to the world
+            //       OBJECT TO ADD     HORIZONTAL POSITION    VERTICAL POSITION
+            addObject(aKey, 54 + 63 * position, 140);
             // Only say hello when we are in the bounds of the array
 
             // Say hello to everyone in the class:
