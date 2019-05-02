@@ -1,5 +1,8 @@
 import greenfoot.*;
 
+// In order to use a list you must import it
+import java.util.List;
+
 /**
  * A block that bounces back and forth across the screen.
  * 
@@ -76,9 +79,17 @@ public class Block extends Actor
      */
     private void checkMouseClick()
     {
-        if (Greenfoot.mouseClicked(null)) 
+        // When null is the argument, Greenfoot responds to a mouse click
+        // anywhere on screen
+        // When this is the argument, Greenfoot responds to a mouse click
+        // only on the block object
+        if (Greenfoot.mouseClicked(this)) 
         {
-            // do this when the mouse is clicked. currently: nothing.
+            // 1. Get an object reference to the world
+            World myWorld = getWorld();
+            
+            // Make a message show up on screen when the mouse is clicked
+            myWorld.showText("mouse was clicked", 200, 200);
         }
     }
     
